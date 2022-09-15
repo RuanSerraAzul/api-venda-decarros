@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'api',
+        'passwords' => 'vendedores',
     ],
 
     /*
@@ -38,7 +38,11 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'vendedores',
+        ],
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'vendedores'
         ],
     ],
 
@@ -60,9 +64,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'vendedores' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Vendedor::class,
         ],
 
         // 'users' => [
@@ -87,11 +91,11 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'vendedores' => [
+            'provider' => 'vendedores',
             'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
+            'expire' => 5,
+            'throttle' => 5,
         ],
     ],
 
@@ -106,6 +110,6 @@ return [
     |
     */
 
-    'password_timeout' => 10800,
+    'password_timeout' => 360,
 
 ];
