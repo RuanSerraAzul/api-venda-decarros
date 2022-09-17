@@ -18,4 +18,5 @@ Route::group(['middleware' => 'auth:api'], function () { //grupo de rotas autent
 
 
     Route::post('/carros/create', [Carros::class, 'store'])->name('carros.create'); //adicionar um carro ao banco de dados
+    Route::get('/carros/lista',[Carros::class, 'list'])->name('carros.lista'); //listar todos os carros 
 });

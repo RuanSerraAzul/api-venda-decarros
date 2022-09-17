@@ -46,4 +46,12 @@ class Carros extends Controller
         
     }
 
+    public function list(){
+        $lista = Carro::get()->toJson(JSON_PRETTY_PRINT);
+
+        return response($lista, 200);
+
+
+    }
+
 }
