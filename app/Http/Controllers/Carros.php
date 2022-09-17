@@ -48,10 +48,24 @@ class Carros extends Controller
 
     public function list(){
         $lista = Carro::get()->toJson(JSON_PRETTY_PRINT);
-
         return response($lista, 200);
-
-
     }
 
+
+    public function delete($id){
+
+        $carro = Carro::where('id',$id);
+
+        if($carro['vendido'] == "sim"){
+            return response()->json("Não é permitido deletar um carro vendido", 403);
+
+        } else {
+            Carro::where('id',$id)->delete();
+            return response()->json("Carro deletado com sucesso!", 200);
+        }
+        
+        
+    }
+
+    
 }

@@ -12,10 +12,11 @@ class Carros extends Migration
         Schema::create('carros', function (Blueprint $table) {
             $table->id();
             $table->string('modelo');
-            $table->string('ano');
+            $table->integer('ano');
             $table->string('marca');
             $table->string('status');
-            $table->float('valor', $total = 8,  $places = 2)->default(0)->nullable($value = true);
+            $table->float('valor', $total = 8,  $places = 2);
+            $table->string('vendido')->default("nao")->nullable($value =true);
             
         });
     }
