@@ -19,5 +19,9 @@ Route::group(['middleware' => 'auth:api'], function () { //grupo de rotas autent
 
     Route::post('/carros/create', [Carros::class, 'store'])->name('carros.create'); //adicionar um carro ao banco de dados
     Route::get('/carros/lista',[Carros::class, 'list'])->name('carros.lista'); //listar todos os carros 
-    Route::post('/carros/delete/{id}',[Carros::class, 'delete'])->name('carros.delete'); //deletar um carrro 
+    Route::post('/carros/delete/{id}',[Carros::class, 'delete'])->name('carros.delete'); //deletar um carro 
+    Route::get('/carros/ver/{id}', [Carros::class, 'show'])->name('carros,ver.id'); //visualizar todas as informações de um carro
+
+    
+
 });

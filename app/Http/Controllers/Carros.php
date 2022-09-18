@@ -67,5 +67,11 @@ class Carros extends Controller
         
     }
 
+    public function show($id){
+        $carro = Carro::where('id', $id)->first();
+
+        return response()->json($carro, 200);
+    }
+
     
 }
