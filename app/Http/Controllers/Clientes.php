@@ -37,7 +37,17 @@ class Clientes extends Controller
     }
 
     public function delete($id){
-        Cliente::where('id',$id)->delete();
-        return response()->json("Cliente deletado com sucesso!", 200);
+        $getCliente = Cliente::where('id', $id)->first();
+
+        $compras = $getCliente['compras'];
+
+        if($compras>0){
+            Cliente::where('id',$id)->delete();
+            return response()->json("Cliente deletado com sucesso!", 200);
+
+        } else {
+            return response()->json("Erro, não é possível deletar um cliente que ja fez compras, o cadastro dele é necessário para futuras consultas", 403);
+        }
+        
     }
 }
