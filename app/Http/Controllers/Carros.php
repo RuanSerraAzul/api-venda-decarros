@@ -24,8 +24,8 @@ class Carros extends Controller
 
         } else {
             $status = $request->status;
-            if($status != "seminovo" || $status != "novo" || $status != "usado"){
-                $erro ="Erro, apenas os status \"seminovo\",  \"novo\" e \"usado\" são suportados ";
+            if($status != "seminovo" && $status != "novo" && $status != "usado"){
+                $erro ="Erro, apenas os status \"seminovo\",  \"novo\" e \"usado\" são suportados, você digitou:".$status."";
                 return response()->json($erro, 400);
             }
 

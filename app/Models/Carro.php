@@ -11,4 +11,12 @@ class Carro extends Model
     protected $table = 'carros';
 
     public $timestamps = false;
+    protected $fillable = [
+        'modelo',
+        'ano',
+        'marca',
+        'status',
+        'valor',
+        'vendido'
+    ];
 }
