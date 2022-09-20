@@ -54,9 +54,10 @@ class Carros extends Controller
 
     public function delete($id){
 
-        $carro = Carro::where('id',$id);
+        $carro = Carro::where('id',$id)->first();
+        $carroVendido = $carro['vendido'];
 
-        if($carro['vendido'] == "sim"){
+        if($carroVendido == "sim"){
             return response()->json("Não é permitido deletar um carro vendido", 403);
 
         } else {
