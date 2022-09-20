@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Carros;
 use App\Http\Controllers\Clientes;
+use App\Http\Controllers\Vendas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
