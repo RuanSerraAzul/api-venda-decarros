@@ -10,7 +10,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('auth.regist
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login'); //loga o vendedor
 
 Route::group(['middleware' => 'auth:api'], function () { //grupo de rotas autenticadas
-    Route::post('/me', [AuthController::class, 'me'])->name('auth.me'); //retorna os dados dos jornalistas
+    Route::post('/me', [AuthController::class, 'me'])->name('auth.me'); //retorna os dados dos vendedor
 
     Route::post('/clientes/create', [Clientes::class, 'store'])->name('clientes.create'); //cria um novo cliente
     Route::get('/clientes/lista', [Clientes::class, 'list'])->name('clientes.listar'); //lista todos os clientes
@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth:api'], function () { //grupo de rotas autent
     Route::post('/carros/delete/{id}',[Carros::class, 'delete'])->name('carros.delete'); //deletar um carro 
     Route::get('/carros/ver/{id}', [Carros::class, 'show'])->name('carros,ver.id'); //visualizar todas as informações de um carro
 
-    
-
+    Route::get('/vendas/lista', [Vendas::class, 'list'])->name('vendas.lista'); //listar vendas
+    Route::post('/vendas/create', [Vendas::class, 'store'])->name('vendas.create'); //adicionar vendas
+    Route::get('/vendas/ver/{id}', [Vendas::class, 'show'])->name('vendas.ver.id'); //listar vendas
 });
