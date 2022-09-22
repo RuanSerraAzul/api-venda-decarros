@@ -19,7 +19,7 @@ class Vendas extends Controller
             'forma_pagamento' => 'required|string|max:255|min:4',
         ]);
 
-        
+
 
         if($validator->fails()) {
             $error = $validator->errors();
@@ -68,5 +68,17 @@ class Vendas extends Controller
 
 
         }
+    }
+
+    public function list(){
+        $vendas = Venda::get()->toJson(JSON_PRETTY_PRINT);
+
+        return response($vendas, 200);
+    }
+
+    public function show($id){
+        $venda = Venda::where('id', $id)->first();
+
+        return response()->json($venda, 200);
     }
 }
