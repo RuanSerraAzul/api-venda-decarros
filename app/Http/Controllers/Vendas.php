@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carro;
+use App\Models\Cliente;
 use App\Models\Venda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +18,8 @@ class Vendas extends Controller
             'carroId' => 'required|numeric|',
             'forma_pagamento' => 'required|string|max:255|min:4',
         ]);
+
+        
 
         if($validator->fails()) {
             $error = $validator->errors();
@@ -44,6 +48,19 @@ class Vendas extends Controller
                     'id_carro' =>$request->carroId,
                     'forma_pagamento' => $pagamento
                 ]);
+
+                $carro = Carro::find($request->carroId);
+
+                $carro->vendido = 'sim';
+
+                $carro->save();
+
+                $cliente = Cliente::find($request->clienteId);
+
+                $cliente->compras +=1;
+
+                $cliente->save();
+
 
                 return response()->json("Venda adicionada com sucesso!", 200);
 
