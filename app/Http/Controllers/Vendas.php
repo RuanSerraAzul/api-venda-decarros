@@ -14,7 +14,7 @@ class Vendas extends Controller
         $validator = Validator::make($request->all(),[
             'clienteId' =>'required|numeric',
             'carroId' => 'required|numeric|',
-            'pagamento' => 'required|string|max:255|min:4',
+            'forma_pagamento' => 'required|string|max:255|min:4',
         ]);
 
         if($validator->fails()) {
@@ -28,10 +28,9 @@ class Vendas extends Controller
 
             $verificaMetodo = array_search($pagamento,$metodos);
 
-            if($verificaMetodo==""){
+            if($verificaMetodo===""){
 
-                $error = "Método de pagamento não suportado, os métodos de pagamento suportados são 
-                credito, debito, parcelado, a vista e consorcio" ; 
+                $error = "Método de pagamento não suportado, os métodos de pagamento suportados são: credito, debito, parcelado, a vista e consorcio" ; 
 
                 return response()->json($error, 400);
 

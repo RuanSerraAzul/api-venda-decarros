@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Venda extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
+    
+    protected $fillable = [
+        'id_vendedor',
+        'id_cliente',
+        'id_carro',
+        'forma_pagamento'
+    ];
 }
