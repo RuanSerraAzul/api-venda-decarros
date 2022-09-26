@@ -1,0 +1,48 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: Ruan
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: api-venda-decarros
+    container_name: api-venda-decarros-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - api-venda-decarros
+
+  db:
+    image: mysql:5.7
+    container_name: api-venda-decarros-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - api-venda-decarros
+
+  nginx:
+    image: nginx:alpine
+    container_name: api-venda-decarros-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - api-venda-decarros
+
+networks:
+  api-venda-decarros:
+    driver: bridge
