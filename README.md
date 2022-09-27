@@ -167,3 +167,8 @@ Para listar os clientes basta acessar a rota "/api/clientes/lista", e a aplicaç
 }
 ```
 Além do status code 200.
+
+### Deletar clientes
+Atenção, apenas clientes que ainda não fizeram compras podem ser deletados, pois precisamos dos dados de todos que já compraram conosco. para deletar basta acessar a rota "/api/clientes/delete/{id}" onde {id} é o id do cliente que queremos deletar. Feito isso a plicação nos retornará um status code 200, e uma mensagem de sucesso.
+
+
