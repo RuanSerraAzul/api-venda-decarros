@@ -169,6 +169,39 @@ Para listar os clientes basta acessar a rota "/api/clientes/lista", e a aplicaç
 Além do status code 200.
 
 ### Deletar clientes
-Atenção, apenas clientes que ainda não fizeram compras podem ser deletados, pois precisamos dos dados de todos que já compraram conosco. para deletar basta acessar a rota "/api/clientes/delete/{id}" onde {id} é o id do cliente que queremos deletar. Feito isso a plicação nos retornará um status code 200, e uma mensagem de sucesso.
+Atenção, apenas clientes que ainda não fizeram compras podem ser deletados, pois precisamos dos dados de todos que já compraram conosco. Para deletar basta acessar a rota "/api/clientes/delete/{id}" onde {id} é o id do cliente que queremos deletar. Feito isso a aplicação nos retornará um status code 200, e uma mensagem de sucesso.
 
 
+## Carros
+
+### Registrar Carros
+
+Para registrar um novo carro devemos acessar a rota "api/carros/create", e preencher o corpo da requisição com os seguintes dados: 
+``` javascript
+{
+    "modelo":"Onix Joy",
+    "ano": "2018",
+    "marca": "chevrolet",
+    "status": "seminovo",
+    "valor": "50000.00"
+}
+```
+Se os dados forem inseridos corretamente a aplicação retornará o status code 200, e uma mensagem dizendo que a operação foi feita com sucesso.
+
+### Listar carros
+
+Para listar os carros basta acessar a rota "/api/carros/lista", e a aplicação retornará um JSON com os seguintes dados:
+
+``` javascript
+{
+    "modelo":"Onix Joy",
+    "ano": "2018",
+    "marca": "chevrolet",
+    "status": "seminovo",
+    "valor": "50000.00",
+    "vendido": "sim"
+}
+```
+
+### Deletar Carros
+Atenção, não é possivel deletar carros que já foram vendidos. Para deletar basta acessar a rota "/api/carros/delete/{id}" onde {id} é o id do carro que queremos deletar. Feito isso a aplicação nos retornará um status code 200, e uma mensagem de sucesso.
