@@ -8,8 +8,9 @@
 -   [Instalação](#instalacao)
 -   [Como usar](#como-usar)
     -   [Vendedores](#vendedores)
-    -   [Noticias](#noticias)
-    -   [Tipos de noticias](#tiposnoticias)
+    -   [Clientes](#clientes)
+    -   [Carros](#carros)
+    -   [Vendas](#vendas)
 
 ## Sobre
 
@@ -122,6 +123,17 @@ Para logarmos com nosso usuario basta acessar a rota /api/login usando o método
 
 ```
 
+Após feito o login, precisaremos colocar nosso token no header da requisição da seguinte forma:
+
+```javascript
+
+        {
+        "Accept":"application/json",
+        "Authorization" : "Beaver eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY2MjMyNDk4NCwiZXhwIjoxNjYyMzI4NTg0LCJuYmYiOjE2NjIzMjQ5ODQsImp0aSI6ImtmeFo4QnV1SHRsWDdWUUciLCJzdWIiOjIsInBydiI6IjdiMzcxY2U0NDVkMWMwNjdiOWM2ZWNiZDYxM2M1MTkwMWFlZjA1M2IifQ.TO_0wgTMWt79mS885Xm9iE5tpGk5Jk8-EOuUH-29T9o"
+    }
+
+```
+
 ### Informações sobre o úsuario
 
 Acessar a rota /api/me usando o método GET retorna os dados do usuario logado(o hash da senha estará omitido).<br>
@@ -130,3 +142,28 @@ Acessar a rota /api/me usando o método GET retorna os dados do usuario logado(o
 
 ### Criando um novo clientes
 
+Para criar um novo cliente devemos acessar a rota "api/clientes/create", e preencher o corpo da requisição com os seguintes dados: 
+``` javascript
+{
+    "nome":"juliano rocha souza",
+    "email": "juliano123@gmail.com",
+    "telefone": "85986253213"
+}
+```
+Se os dados forem inseridos corretamente a aplicação retornará o status code 200, e uma mensagem dizendo que a operação foi feita com sucesso.
+
+### Listar clientes
+
+Para listar os clientes basta acessar a rota "/api/clientes/lista", e a aplicação retornará um JSON com os seguintes dados:
+```javascript
+{
+    ["id":1,
+    "nome":"carlos souza",
+    "email": "carlos@gmail.com",
+    "telefone" : "85986175623"
+    "compras" : 1
+    ]
+
+}
+```
+Além do status code 200.
