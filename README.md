@@ -205,3 +205,50 @@ Para listar os carros basta acessar a rota "/api/carros/lista", e a aplicação 
 
 ### Deletar Carros
 Atenção, não é possivel deletar carros que já foram vendidos. Para deletar basta acessar a rota "/api/carros/delete/{id}" onde {id} é o id do carro que queremos deletar. Feito isso a aplicação nos retornará um status code 200, e uma mensagem de sucesso.
+
+## Vendas
+
+### Registrar Venda
+Atenção, não é possivel registrar a venda de um carro que ja foi vendido. Para registrar uma nova venda devemos acessar a rota "api/vendas/create", e preencher o corpo da requisição com os seguintes dados:
+
+``` javascript
+{
+    "id_cliente":2,
+    "id_carro": 1,
+    "forma_pagamento": "credito"
+}
+```
+Feito isso a aplicação nos retornará um status code 200, e uma mensagem de sucesso. A aplicação informará quais as formas de pagamento serão aceitas.
+
+### Visualizar venda
+Para visualizar uma venda acessaremos a rota "/vendas/ver/{id}", onde {id} é o id da venda que desejamos visualizar. Será retornado um JSON com as seguintes informações:
+
+``` javascript
+{
+    "id":1,
+    "id_vendedor": 1,
+    "id_cliente":2,
+    "id_carro": 1,
+    "forma_pagamento": "credito"
+}
+```
+### Listar Vendas
+
+Para listar todas as vendas acessaremos a rota "/api/vendas/lista", que nos retornará um JSON com o seguinte formato:
+
+``` javascript
+{
+    ["id":1,
+    "id_vendedor": 1,
+    "id_cliente":2,
+    "id_carro": 1,
+    "forma_pagamento": "credito"],
+    [
+    "id":13,
+    "id_vendedor": 11,
+    "id_cliente":24,
+    "id_carro": 11,
+    "forma_pagamento": "dinheiro"]
+}
+```
+    
