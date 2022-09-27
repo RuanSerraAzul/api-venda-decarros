@@ -127,7 +127,7 @@ Após feito o login, precisaremos colocar nosso token no header da requisição 
 
 ```javascript
 
-        {
+    {
         "Accept":"application/json",
         "Authorization" : "Beaver eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY2MjMyNDk4NCwiZXhwIjoxNjYyMzI4NTg0LCJuYmYiOjE2NjIzMjQ5ODQsImp0aSI6ImtmeFo4QnV1SHRsWDdWUUciLCJzdWIiOjIsInBydiI6IjdiMzcxY2U0NDVkMWMwNjdiOWM2ZWNiZDYxM2M1MTkwMWFlZjA1M2IifQ.TO_0wgTMWt79mS885Xm9iE5tpGk5Jk8-EOuUH-29T9o"
     }
