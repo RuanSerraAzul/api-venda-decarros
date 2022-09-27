@@ -157,11 +157,19 @@ Se os dados forem inseridos corretamente a aplicação retornará o status code 
 Para listar os clientes basta acessar a rota "/api/clientes/lista", e a aplicação retornará um JSON com os seguintes dados:
 ```javascript
 {
-    ["id":1,
-    "nome":"carlos souza",
-    "email": "carlos@gmail.com",
-    "telefone" : "85986175623"
-    "compras" : 1
+    [
+        "id":1,
+        "nome":"carlos souza",
+        "email": "carlos@gmail.com",
+        "telefone" : "85986175623"
+        "compras" : 1
+    ],
+    [
+        "id":2,
+        "nome":"maria ferreira",
+        "email": "maria@gmail.com",
+        "telefone" : "85986631552"
+        "compras" : 0
     ]
 
 }
@@ -194,12 +202,26 @@ Para listar os carros basta acessar a rota "/api/carros/lista", e a aplicação 
 
 ``` javascript
 {
-    "modelo":"Onix Joy",
-    "ano": "2018",
-    "marca": "chevrolet",
-    "status": "seminovo",
-    "valor": "50000.00",
-    "vendido": "sim"
+    [
+        "id":1,
+        "modelo":"Onix Joy",
+        "ano": "2018",
+        "marca": "chevrolet",
+        "status": "seminovo",
+        "valor": "50000.00",
+        "vendido": "sim"
+    ],
+    [
+        "id": 2
+        "modelo":"HB20",
+        "ano": "2019",
+        "marca": "Hyundai",
+        "status": "seminovo",
+        "valor": "60000.00",
+        "vendido": "nao"
+    ]
+
+
 }
 ```
 
@@ -238,17 +260,20 @@ Para listar todas as vendas acessaremos a rota "/api/vendas/lista", que nos reto
 
 ``` javascript
 {
-    ["id":1,
-    "id_vendedor": 1,
-    "id_cliente":2,
-    "id_carro": 1,
-    "forma_pagamento": "credito"],
     [
-    "id":13,
-    "id_vendedor": 11,
-    "id_cliente":24,
-    "id_carro": 11,
-    "forma_pagamento": "dinheiro"]
+        "id":1,
+        "id_vendedor": 1,
+        "id_cliente":2,
+        "id_carro": 1,
+        "forma_pagamento": "credito"
+    ],
+    [
+        "id":13,
+        "id_vendedor": 11,
+        "id_cliente":24,
+        "id_carro": 11,
+        "forma_pagamento": "dinheiro"
+    ]
 }
 ```
     
