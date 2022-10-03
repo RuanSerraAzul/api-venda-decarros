@@ -1,6 +1,6 @@
 <h1 align="left">API venda de carros</h1>
 
-<p align="left">Este projeto é uma REST API, que usa Laravel e MySQL, para realizar operações com vendodores, clientes, carros e vendas, onde o vendedor é um usúario autenticado(e é possivel acessar as rotas e a API somente com autenticação), que realiza os processos de criar, editar, excluir listar clientes, carros e vendas.</p>
+<p align="left">Este projeto é uma REST API, que usa Laravel e MySQL, para realizar operações com vendedores, clientes, carros e vendas, onde o vendedor é um usuário autenticado(e é possivel acessar as rotas e a API somente com autenticação), que realiza os processos de criar, editar, excluir listar clientes, carros e vendas.</p>
 
 <!--ts-->
 
